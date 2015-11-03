@@ -1,0 +1,13 @@
+app/
+  bin/                  #Files for command-line execution
+  lib/
+    appname.rb
+    appname/            #Classes and so on
+  Rakefile              #Running tests
+  README
+  test,spec,features/   #Whichever means of testing you go for
+  appname.gemspec       #If it's a gem
+  
+  For Documentation -> http://tomdoc.org/
+  
+  http://stackoverflow.com/questions/4687659/should-one-use-dashes-or-underscores-when-naming-a-gem-with-more-than-one-word
