@@ -5,15 +5,12 @@ require '../lib/parser/field_mapper'
 people_arr = []
 
 # Sort first, then return string representation.
-f = File.open("../space.txt","r")
-
-#myDelimiter = DelimiterSniffer.new.sniff(f.first)
-#puts myDelimiter
+f = File.open("../comma.txt","r")
 
 # Populate the array with People.
 f.each_line do |line| 
 	myDelimiter = DelimiterSniffer.new.sniff(line)	
-	#puts myDelimiter	
+	#puts myDelimiter, line	
 	person = FieldMapper.new(line,myDelimiter)
 	people_arr.push(person.get_mapped_data)	
 end

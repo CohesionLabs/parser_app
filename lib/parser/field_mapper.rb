@@ -13,14 +13,16 @@ class FieldMapper
   
   def initialize(data, delimiter)
     @data = data
-    puts delimiter.to_s
-    if delimiter == ' '
-      return spaces_data_mapper
-    elsif delimiter == '|'
-      return spaces_data_mapper
-    else
-      return spaces_data_mapper
-    end    
+    
+    case delimiter.gsub(/\s+/,'')
+	when '|'
+	  return pipe_data_mapper
+	when ','
+	  return comma_data_mapper
+	else
+	  return spaces_data_mapper
+	end
+        
   end
   
   def get_mapped_data
@@ -43,10 +45,33 @@ class FieldMapper
 	
   end
   
+  # ',' Comma mapper.
   def comma_data_mapper
+    fields = @data.split(',')
+	
+	person = Person.new
+    person.first_name = fields[1]
+    person.last_name = fields[0]
+    person.gender = fields[2]
+    person.date_of_birth = fields[4]
+    person.favorite_color = fields[3]
+  
+    @mapped_data = person	  
   end
   
+  # '|' Pipe data mapper.
   def pipe_data_mapper
+    fields = @data.split('|')
+	
+	person = Person.new
+    person.first_name = fields[1]
+    person.last_name = fields[0]
+    person.gender = fields[3]
+    person.date_of_birth = fields[5]
+    person.favorite_color = fields[4]
+  
+    @mapped_data = person
+    
   end
   
   def set_delimiter_type
