@@ -36,6 +36,12 @@ class FieldMapper
 	
   end
   
+  def comma_data_mapper
+  end
+  
+  def pipe_data_mapper
+  end
+  
   def set_delimiter_type
     # Discover the delimeter being used.
     @delimeter_type = /\s/

@@ -8,23 +8,15 @@ people_arr = []
 f = File.open("../space.txt","r")
 
 # Populate the array with People.
-f.each_line { |line| 	
-	
+f.each_line { |line| 		
 	person = FieldMapper.new(line)
 	people_arr.push(person.get_mapped_data)	
 }
 
 # Sort by Gender, then last name, and return the string representation of this person.
 people_arr
-	.sort!{ |a,b|  
-		(a.gender == b.gender) ? 
-			a.last_name <=> b.last_name : 
-			a.gender <=> b.gender 
-	}
-	.collect!{ |p| 
-		"#{p.to_s}" 
-	}
-
+	.sort!{ |a,b|  (a.gender == b.gender) ? a.last_name <=> b.last_name : a.gender <=> b.gender }
+	.collect!{ |p| "#{p.to_s}" }
 
 #people_arr.collect!{ |p| "#{p.to_s}" }
 
