@@ -9,8 +9,8 @@ f = File.open("../space.txt","r")
 f.each_line { |line| 
 	
 	# Call the data/field mapper to hydrate the Person class.
-	field_mapper = FieldMapper.new(line)
+	_person = FieldMapper.new(line)
 	
-	puts field_mapper.get_mapped_data.representational_string
+	puts _person.get_mapped_data.representational_string
 	
 }
