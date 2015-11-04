@@ -11,3 +11,8 @@ app/
   For Documentation -> http://tomdoc.org/
   
   http://stackoverflow.com/questions/4687659/should-one-use-dashes-or-underscores-when-naming-a-gem-with-more-than-one-word
+  
+  https://github.com/airbnb/ruby
+  https://github.com/bbatsov/ruby-style-guide
+  https://github.com/styleguide/ruby
+  http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html#method-c-parse_line
