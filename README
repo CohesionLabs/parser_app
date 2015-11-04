@@ -19,3 +19,5 @@ app/
   
   
   Rake - http://jasonseifer.com/2010/04/06/rake-tutorial
+
+  Running the app interminal -> ruby -r "./parser.rb" -e "ParserApp.output_one" 

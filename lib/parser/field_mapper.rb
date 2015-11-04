@@ -15,33 +15,28 @@ class FieldMapper
     @data = data
     
     case delimiter.gsub(/\s+/,'')
-	when '|'
-	  return pipe_data_mapper
-	when ','
-	  return comma_data_mapper
-	else
-	  return spaces_data_mapper
-	end
-        
-  end
-  
-  def get_mapped_data
-  	return @mapped_data
+	  when '|'
+	    pipe_data_mapper
+	  when ','
+	    comma_data_mapper
+	  else
+	    spaces_data_mapper
+	  end    
   end
   
   def spaces_data_mapper
   	# Code for parsing and hydrating the spaces data mapper.
   	# Split each line into an array.
-	  fields = @data.split(/\s/)
+    fields = @data.split(/\s/)
 	
-	  person = Person.new
-	  person.first_name = fields[1]
-	  person.last_name = fields[0]
-	  person.gender = fields[3]
-	  person.date_of_birth = fields[4]
-	  person.favorite_color = fields[5]
+    person = Person.new
+    person.first_name = fields[1]
+    person.last_name = fields[0]
+    person.gender = fields[3]
+    person.date_of_birth = fields[4]
+    person.favorite_color = fields[5]
 	
-	  @mapped_data = person
+    @mapped_data = person
 	
   end
   
@@ -72,10 +67,6 @@ class FieldMapper
   
     @mapped_data = person
     
-  end
-  
-  def set_delimiter_type
-    # Discover the delimeter being used.
   end
   
 end
