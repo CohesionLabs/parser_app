@@ -11,9 +11,16 @@ require '../lib/parser/person'
 class FieldMapper
   attr_accessor :delimeter_type, :data, :mapped_data
   
-  def initialize(data)
+  def initialize(data, delimiter)
     @data = data
-    return spaces_data_mapper    
+    puts delimiter.to_s
+    if delimiter == ' '
+      return spaces_data_mapper
+    elsif delimiter == '|'
+      return spaces_data_mapper
+    else
+      return spaces_data_mapper
+    end    
   end
   
   def get_mapped_data
@@ -23,16 +30,16 @@ class FieldMapper
   def spaces_data_mapper
   	# Code for parsing and hydrating the spaces data mapper.
   	# Split each line into an array.
-	fields = @data.split(/\s/)
+	  fields = @data.split(/\s/)
 	
-	person = Person.new
-	person.first_name = fields[1]
-	person.last_name = fields[0]
-	person.gender = fields[3]
-	person.date_of_birth = fields[4]
-	person.favorite_color = fields[5]
+	  person = Person.new
+	  person.first_name = fields[1]
+	  person.last_name = fields[0]
+	  person.gender = fields[3]
+	  person.date_of_birth = fields[4]
+	  person.favorite_color = fields[5]
 	
-	@mapped_data = person
+	  @mapped_data = person
 	
   end
   
@@ -44,8 +51,6 @@ class FieldMapper
   
   def set_delimiter_type
     # Discover the delimeter being used.
-    @delimeter_type = /\s/
-	
   end
   
 end
