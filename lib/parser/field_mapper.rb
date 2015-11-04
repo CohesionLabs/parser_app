@@ -9,11 +9,15 @@
 require '../lib/parser/person'
 
 class FieldMapper
-  attr_accessor :delimeter_type, :data
+  attr_accessor :delimeter_type, :data, :mapped_data
   
   def initialize(data)
     @data = data
-    spaces_data_mapper    
+    return spaces_data_mapper    
+  end
+  
+  def get_mapped_data
+  	return @mapped_data
   end
   
   def spaces_data_mapper
@@ -28,11 +32,8 @@ class FieldMapper
 	person.date_of_birth = fields[4]
 	person.favorite_color = fields[5]
 	
-	puts person.representational_string
+	@mapped_data = person
 	
-	# Hydrate the Person Class.
-	
-	puts fields.to_s
   end
   
   def set_delimiter_type

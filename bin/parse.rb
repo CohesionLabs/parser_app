@@ -11,6 +11,6 @@ f.each_line { |line|
 	# Call the data/field mapper to hydrate the Person class.
 	field_mapper = FieldMapper.new(line)
 	
-	#puts fields.to_s
+	puts field_mapper.get_mapped_data.representational_string
 	
 }
