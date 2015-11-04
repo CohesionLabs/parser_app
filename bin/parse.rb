@@ -1,32 +1,31 @@
 require 'csv'
 require '../lib/parser/field_mapper'
-require '../lib/parser/person'
 
-item_arr = []
+people_arr = []
 
 # Sort first, then return string representation.
 
 f = File.open("../space.txt","r")
 
-f.each_line { |line| 
+# Populate the array with People.
+f.each_line { |line| 	
 	
-	#split_line = line.split(/\s/)
-	_person = FieldMapper.new(line)
-	#puts _person.get_mapped_data
-	item_arr.push(_person.get_mapped_data)	
+	person = FieldMapper.new(line)
+	people_arr.push(person.get_mapped_data)	
 }
 
-# By Gender, then last name.
-item_arr.sort!{ |a,b|  (a.gender == b.gender) ? a.last_name <=> b.last_name : a.gender <=> b.gender }
+# Sort by Gender, then last name, and return the string representation of this person.
+people_arr
+	.sort!{ |a,b|  
+		(a.gender == b.gender) ? 
+			a.last_name <=> b.last_name : 
+			a.gender <=> b.gender 
+	}
+	.collect!{ |p| 
+		"#{p.to_s}" 
+	}
 
-#puts item_arr.to_s
 
-item_arr.collect!{ |p| "#{p.to_s}" }
+#people_arr.collect!{ |p| "#{p.to_s}" }
 
-puts item_arr.to_s
-
-## Do this after sorting. 
-# Call the data/field mapper to hydrate the Person class.
-	#_person = FieldMapper.new(line)
-	
-	#puts _person.get_mapped_data
+puts people_arr.to_s
