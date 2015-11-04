@@ -28,7 +28,4 @@ class Person
  #           else
  #             'Uknown'
  #           end
-
-
-   
 end
