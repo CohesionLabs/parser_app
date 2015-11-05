@@ -1,16 +1,10 @@
-# Public: Various methods useful for performing mathematical operations.
-# All methods are module methods and should be called on the Math module.
-#
-# Examples
-#
-#   Math.square_root(9)
-#   # => 3
-
 require '../lib/parser/person'
 
+#   Maps the incoming data to a Person object, based on an appropriate mapper method.
 class FieldMapper
   attr_accessor :delimeter_type, :data, :mapped_data
   
+  # Accepts data, and a delimter to call the proper mapper.
   def initialize(data, delimiter)
     @data = data
     
@@ -24,10 +18,10 @@ class FieldMapper
 	  end    
   end
   
+  # Space Data Mapper: parses and hydrates a 
+  # Person object from space delimitted data.
   def spaces_data_mapper
-  	# Code for parsing and hydrating the spaces data mapper.
-  	# Split each line into an array.
-    fields = @data.split(/\s/)
+  	fields = @data.split(' ')
 	
     person = Person.new
     person.first_name = fields[1]
@@ -37,14 +31,14 @@ class FieldMapper
     person.favorite_color = fields[5]
 	
     @mapped_data = person
-	
   end
   
-  # ',' Comma mapper.
+  # Comma Data Mapper: parses and hydrates a 
+  # Person from comma delimitted data.
   def comma_data_mapper
-    fields = @data.split(',')
+    fields = @data.split(', ')
 	
-	person = Person.new
+	  person = Person.new
     person.first_name = fields[1]
     person.last_name = fields[0]
     person.gender = fields[2]
@@ -54,11 +48,12 @@ class FieldMapper
     @mapped_data = person	  
   end
   
-  # '|' Pipe data mapper.
+  # Pipe Data Mapper: parses and hydrates a 
+  # Person from pipe delimitted data.
   def pipe_data_mapper
-    fields = @data.split('|')
+    fields = @data.split(' | ')
 	
-	person = Person.new
+    person = Person.new
     person.first_name = fields[1]
     person.last_name = fields[0]
     person.gender = fields[3]
@@ -66,7 +61,6 @@ class FieldMapper
     person.favorite_color = fields[4]
   
     @mapped_data = person
-    
   end
   
 end

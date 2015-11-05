@@ -4,7 +4,12 @@ class DelimiterSniffer
     "|",
     " "
   ].freeze
-
+  
+  # Returns the delimiter being used on 
+  # a particular line of data.
+  # Would re-write this method to not require the 
+  # explicit "|" return 
+  # (Sniffer was incorrectly returning space for the delimiter).
   def sniff(data_row)
     return nil unless data_row
     return "|" unless !data_row.strip.include? " | "
