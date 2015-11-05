@@ -1,3 +1,16 @@
+To Run Tests:
+ 1.) Open up Terminal.
+ 2.) Go into '/parser_app' directory
+ 3.) Type 'rake run_tests'
+
+To See Rake Options:
+ 1.) Inside of Terminal type 'rake'
+
+To Run the App and See the Output:
+ 1.) Open up Terminal.
+ 2.) Go into '/bin'
+ 3.) Type 'ruby parser_app.rb'
+
 app/
   bin/                  #Files for command-line execution
   lib/

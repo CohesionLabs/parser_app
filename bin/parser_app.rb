@@ -1,5 +1,5 @@
 require '../lib/parser_app'
-puts "Pass 1 2 or 3 to your call" if ARGV.empty?
+puts "Pass 1 2 or 3 as arguments" if ARGV.empty?
 
 ARGV.each do |arg|
 	case arg

@@ -59,17 +59,20 @@ class ParserApp
   def sort_by_last_name_desc(data)
     data.sort!{ |a,b| sort_by_last_name(b,a) }.collect!{ |p| "#{p.to_s}" }
   end
-
+  
+  # Sort based on Last Name Descending.
   def sort_by_last_name(a,b)
     a.last_name <=> b.last_name
   end
 
+  # Sort based on Last Name Descending.
   def sort_by_gender(a,b)
     a.gender <=> b.gender
   end
-
+  
+  # Sort based on Last Name Descending.
   def sort_by_date(a,b)
     Date.strptime(a.date_of_birth,'%m/%d/%Y') <=> Date.strptime(b.date_of_birth,'%m/%d/%Y')
   end
-  
+
 end
