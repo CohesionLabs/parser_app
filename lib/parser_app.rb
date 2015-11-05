@@ -43,22 +43,33 @@ class ParserApp
 
   # Sort based on Gender, and Last Name.
   def sort_by_gender_and_last_name(data)
-    data
-    .sort!{ |a,b|  (a.gender == b.gender) ? a.last_name <=> b.last_name : a.gender <=> b.gender }
-    .collect!{ |p| "#{p.to_s}" }
+    data.sort!{ |a,b| (a.gender == b.gender) ? 
+      sort_by_last_name(a,b) : sort_by_gender(a,b) 
+    }.collect!{ |p| "#{p.to_s}" }
   end
 
   # Sort based on Birth Date, and Last Name.
   def sort_by_birth_date_and_last_name(data)
-    data
-    .sort!{ |a,b|  (a.date_of_birth == b.date_of_birth) ? a.last_name <=> b.last_name : Date.strptime(a.date_of_birth,'%m/%d/%Y') <=> Date.strptime(b.date_of_birth,'%m/%d/%Y') }
-    .collect!{ |p| "#{p.to_s}" }
+    data.sort!{ |a,b| (a.date_of_birth == b.date_of_birth) ? 
+      sort_by_last_name(a,b) : sort_by_date(a,b) 
+    }.collect!{ |p| "#{p.to_s}" }
   end
 
   # Sort based on Last Name Descending.
   def sort_by_last_name_desc(data)
-    data
-    .sort!{ |a,b|  b.last_name <=> a.last_name }
-    .collect!{ |p| "#{p.to_s}" }
+    data.sort!{ |a,b| sort_by_last_name(b,a) }.collect!{ |p| "#{p.to_s}" }
   end
+
+  def sort_by_last_name(a,b)
+    a.last_name <=> b.last_name
+  end
+
+  def sort_by_gender(a,b)
+    a.gender <=> b.gender
+  end
+
+  def sort_by_date(a,b)
+    Date.strptime(a.date_of_birth,'%m/%d/%Y') <=> Date.strptime(b.date_of_birth,'%m/%d/%Y')
+  end
+  
 end

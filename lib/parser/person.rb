@@ -23,14 +23,9 @@ class Person
   end
   
   def date_of_birth
-    # Dates with a US format ("mm/dd/YYYY") need to be parsed and formatted as follows in Ruby 2.0
-    # Else just return the formatted date as desired.
-    if @date_of_birth.include? "/"
-      d = Date.strptime(@date_of_birth.strip.gsub(/\s+/, ""),"%m/%d/%Y").strftime('%-m/%-d/%Y')
-    else
-      d = DateTime.strptime(@date_of_birth,"%m-%d-%Y").strftime("%-m/%-d/%Y")  
-    end
-    @date_of_birth = d
+    # Dates with a US format ("mm/dd/YYYY") need to be parsed and formatted as follows
+    format = @date_of_birth.include?("/") ? "%m/%d/%Y" : "%m-%d-%Y"
+    @date_of_birth = Date.strptime(@date_of_birth.strip.gsub(/\s+/, ""),format).strftime('%-m/%-d/%Y')
   rescue
     raise ArgumentError, "Invalid date."
   end

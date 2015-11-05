@@ -28,7 +28,7 @@ describe "Person" do
   
   it "should accept date of birth with hyphens" do
   	@person.date_of_birth = '02-18-2015'
-  	@person.date_of_birth.must_equal "18/2/2015"
+  	@person.date_of_birth.must_equal "2/18/2015"
   end
 
   it "should error when it gets an unexpected date format" do
@@ -42,7 +42,7 @@ describe "Person" do
   	@person.favorite_color = "Red"
   	@person.date_of_birth = "1/1/2015"
   	@person.gender = "m"
-  	@person.to_s.must_equal "Joe Thomson Male 1/1/2015 Red"
+  	@person.to_s.must_equal "Thomson Joe Male 1/1/2015 Red"
   end
 
 end
