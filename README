@@ -1,36 +1,19 @@
-To Run Tests:
+Requirements:
+ 1.) Ruby 2.0 +
+ 2.) No external gems were used.
+
+To Run Tests (uses built in minitest framework):
  1.) Open up Terminal.
  2.) Go into '/parser_app' directory
- 3.) Type 'rake run_tests'
+ 3.) Type 'rake test'
 
 To See Rake Options:
  1.) Inside of Terminal type 'rake'
 
 To Run the App and See the Output:
  1.) Open up Terminal.
- 2.) Go into '/bin'
- 3.) Type 'ruby parser_app.rb'
-
-app/
-  bin/                  #Files for command-line execution
-  lib/
-    appname.rb
-    appname/            #Classes and so on
-  Rakefile              #Running tests
-  README
-  test,spec,features/   #Whichever means of testing you go for
-  appname.gemspec       #If it's a gem
-  
-  For Documentation -> http://tomdoc.org/
-  
-  http://stackoverflow.com/questions/4687659/should-one-use-dashes-or-underscores-when-naming-a-gem-with-more-than-one-word
-  
-  https://github.com/airbnb/ruby
-  https://github.com/bbatsov/ruby-style-guide
-  https://github.com/styleguide/ruby
-  http://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html#method-c-parse_line
-  
-  
-  Rake - http://jasonseifer.com/2010/04/06/rake-tutorial
-
-  Running the app interminal -> ruby -r "./parser.rb" -e "ParserApp.output_one" 
+ 2.) Go into '/bin' directory inside the app.
+ 3.) To run the app type 'ruby parser_app.rb 1' or 'ruby parser_app.rb 1 2 3'
+     1 => 'Output sorted by gender and last name'
+     2 => 'Output sorted by birth date and last name'
+     3 => 'Output sorted by last name'

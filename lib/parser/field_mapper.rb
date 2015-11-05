@@ -1,4 +1,4 @@
-require '../lib/parser/person'
+require_relative '../../lib/parser/person'
 
 #   Maps the incoming data to a Person object, based on an appropriate mapper method.
 class FieldMapper

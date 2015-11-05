@@ -69,7 +69,7 @@ class ParserApp
   def sort_by_gender(a,b)
     a.gender <=> b.gender
   end
-  
+
   # Sort based on Last Name Descending.
   def sort_by_date(a,b)
     Date.strptime(a.date_of_birth,'%m/%d/%Y') <=> Date.strptime(b.date_of_birth,'%m/%d/%Y')
